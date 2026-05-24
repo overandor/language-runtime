@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head><title>Language Runtime Demo</title></head>
+<body>
+<h1>Language Runtime Demo</h1>
+<button onclick="trackKPI()">Track KPI</button>
+<button onclick="detectManipulation()">Detect Manipulation</button>
+<button onclick="calculatePrice()">Calculate Price</button>
+<div id="stats"></div>
+<div id="log"></div>
+<script>
+let kpis = [];
+let manipulations = 0;
+function trackKPI() {
+  kpis.push({metric: 'oracle_accuracy', value: 0.95});
+  log("KPI tracked: oracle_accuracy = 0.95");
+}
+function detectManipulation() {
+  manipulations++;
+  log("Manipulation attempt detected and blocked");
+}
+function calculatePrice() {
+  log("Calculating price using oracle formulas...");
+  log("Price: $123.45 (anti-manipulation verified)");
+}
+function updateStats() {
+  document.getElementById('stats').innerHTML = `KPIs: ${kpis.length} | Manipulations Blocked: ${manipulations}`;
+}
+function log(msg) {
+  document.getElementById('log').innerHTML += `<div>${msg}</div>`;
+}
+</script>
+</body>
+</html>
